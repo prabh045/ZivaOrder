@@ -11,6 +11,9 @@
 		7FC58BD2275F8EA9000FF5BB /* ProductsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC58BD1275F8EA9000FF5BB /* ProductsRepository.swift */; };
 		7FC58BD7275F8F42000FF5BB /* DefaultProductsReposirory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC58BD6275F8F42000FF5BB /* DefaultProductsReposirory.swift */; };
 		7FC58BDC275F8F9D000FF5BB /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC58BDB275F8F9D000FF5BB /* APIError.swift */; };
+		7FC58C01275F9912000FF5BB /* GadgetsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC58C00275F9912000FF5BB /* GadgetsViewModel.swift */; };
+		7FC58C06275F99C5000FF5BB /* FetchProductsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC58C05275F99C5000FF5BB /* FetchProductsUseCase.swift */; };
+		7FC58C0B275F9D47000FF5BB /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC58C0A275F9D47000FF5BB /* Box.swift */; };
 		7FD08628275E769400293DEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD08627275E769400293DEB /* AppDelegate.swift */; };
 		7FD0862A275E769400293DEB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD08629275E769400293DEB /* SceneDelegate.swift */; };
 		7FD08632275E769400293DEB /* zivaorder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7FD08630275E769400293DEB /* zivaorder.xcdatamodeld */; };
@@ -44,6 +47,9 @@
 		7FC58BD1275F8EA9000FF5BB /* ProductsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsRepository.swift; sourceTree = "<group>"; };
 		7FC58BD6275F8F42000FF5BB /* DefaultProductsReposirory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultProductsReposirory.swift; sourceTree = "<group>"; };
 		7FC58BDB275F8F9D000FF5BB /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		7FC58C00275F9912000FF5BB /* GadgetsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GadgetsViewModel.swift; sourceTree = "<group>"; };
+		7FC58C05275F99C5000FF5BB /* FetchProductsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchProductsUseCase.swift; sourceTree = "<group>"; };
+		7FC58C0A275F9D47000FF5BB /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
 		7FD08624275E769400293DEB /* zivaorder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = zivaorder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FD08627275E769400293DEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7FD08629275E769400293DEB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -100,6 +106,7 @@
 			children = (
 				7FD08677275E7A7500293DEB /* GadgetTableViewCell.swift */,
 				7FD0866F275E780100293DEB /* GadgetsViewController.swift */,
+				7FC58C00275F9912000FF5BB /* GadgetsViewModel.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -126,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				7FC58BD1275F8EA9000FF5BB /* ProductsRepository.swift */,
+				7FC58C05275F99C5000FF5BB /* FetchProductsUseCase.swift */,
 			);
 			path = Interface;
 			sourceTree = "<group>";
@@ -170,13 +178,14 @@
 			isa = PBXGroup;
 			children = (
 				7FC58BEC275F97CE000FF5BB /* Application */,
+				7FC58BE4275F9799000FF5BB /* Domian */,
+				7FC58BF0275F97E1000FF5BB /* Data */,
 				7FC58BE8275F97B6000FF5BB /* Presentation */,
 				7FD08633275E769600293DEB /* Assets.xcassets */,
 				7FD08635275E769600293DEB /* LaunchScreen.storyboard */,
 				7FD08638275E769600293DEB /* Info.plist */,
 				7FD08630275E769400293DEB /* zivaorder.xcdatamodeld */,
-				7FC58BE4275F9799000FF5BB /* Domian */,
-				7FC58BF0275F97E1000FF5BB /* Data */,
+				7FC58C0A275F9D47000FF5BB /* Box.swift */,
 			);
 			path = zivaorder;
 			sourceTree = "<group>";
@@ -330,11 +339,14 @@
 			files = (
 				7FD08670275E780100293DEB /* GadgetsViewController.swift in Sources */,
 				7FC58BD7275F8F42000FF5BB /* DefaultProductsReposirory.swift in Sources */,
+				7FC58C06275F99C5000FF5BB /* FetchProductsUseCase.swift in Sources */,
+				7FC58C01275F9912000FF5BB /* GadgetsViewModel.swift in Sources */,
 				7FD08678275E7A7500293DEB /* GadgetTableViewCell.swift in Sources */,
 				7FC58BD2275F8EA9000FF5BB /* ProductsRepository.swift in Sources */,
 				7FD08632275E769400293DEB /* zivaorder.xcdatamodeld in Sources */,
 				7FD08628275E769400293DEB /* AppDelegate.swift in Sources */,
 				7FD0862A275E769400293DEB /* SceneDelegate.swift in Sources */,
+				7FC58C0B275F9D47000FF5BB /* Box.swift in Sources */,
 				7F2DAA54275F8CBB0074E749 /* Gadget.swift in Sources */,
 				7FC58BDC275F8F9D000FF5BB /* APIError.swift in Sources */,
 			);

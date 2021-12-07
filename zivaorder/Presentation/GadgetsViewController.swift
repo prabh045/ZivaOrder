@@ -17,13 +17,14 @@ class GadgetsViewController: UIViewController {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
+    private var gadgetViewModel = GadgetsViewModel(productsRepo: DefaultProductsRepositroy())
     
     //MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .blue
         setUI()
-        // Do any additional setup after loading the view.
+        setViewModels()
     }
     
     //MARK: Set up UI
@@ -41,17 +42,29 @@ class GadgetsViewController: UIViewController {
             gadgetTableView.bottomAnchor.constraint(equalTo: safelayout.bottomAnchor),
         ])
     }
+    
+    private func setViewModels() {
+        gadgetViewModel.bind { [weak self] in
+            DispatchQueue.main.async {
+                self?.gadgetTableView.reloadData()
+            }
+        }
+        gadgetViewModel.fetchProducts()
+    }
 }
 //MARK: TableView Extension
 extension GadgetsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return gadgetViewModel.getProductsCount()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let gadgetCell = tableView.dequeueReusableCell(withIdentifier: GadgetTableViewCell.getResuseIdentifier(), for: indexPath) as? GadgetTableViewCell else {
             fatalError("No gadget cell found. Terminating app")
         }
+        gadgetCell.setData(name: gadgetViewModel.getProductName(at: indexPath.row),
+                           price: gadgetViewModel.getProductPrice(at: indexPath.row),
+                           rating: gadgetViewModel.getProductRating(at: indexPath.row))
         return gadgetCell
     }
 }

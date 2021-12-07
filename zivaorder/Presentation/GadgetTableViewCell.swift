@@ -7,6 +7,9 @@
 
 import UIKit
 class GadgetTableViewCell: UITableViewCell {
+    static func getResuseIdentifier() -> String {
+        return "GadgetTableViewCell"
+    }
     //MARK: Properties
     private lazy var gadgetImageView: UIImageView = {
         let imageView = UIImageView()
@@ -84,7 +87,9 @@ class GadgetTableViewCell: UITableViewCell {
         ])
     }
     
-    static func getResuseIdentifier() -> String {
-        return "GadgetTableViewCell"
+    func setData(name: String, price: String, rating: Int) {
+        nameLabel.text = name
+        priceLabel.text = price
+        ratingLabel.text = "\(rating)"
     }
 }
