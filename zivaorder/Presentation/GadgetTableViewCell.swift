@@ -68,6 +68,7 @@ class GadgetTableViewCell: UITableViewCell {
         button.titleLabel?.font = UIFont(name: "Helvetica Neue", size: 14)
         button.backgroundColor = .clear
         button.layer.cornerRadius = 7
+        button.addTarget(self, action: #selector(onButtonTap), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -79,6 +80,7 @@ class GadgetTableViewCell: UITableViewCell {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
+    var buttonTapped: (() -> Void)?
     
     //MARK: Initialisation methods
     override func awakeFromNib() {
@@ -138,7 +140,7 @@ class GadgetTableViewCell: UITableViewCell {
         ])
     }
     
-    func setData(name: String, price: String, rating: Int, imageUrl: String) {
+    func setData(name: String, price: String, rating: Int, imageUrl: String, handler: @escaping () -> Void) {
         nameLabel.text = name
         priceLabel.text = price
         ratingLabel.text = "\(rating)"
@@ -146,5 +148,10 @@ class GadgetTableViewCell: UITableViewCell {
            return
         }
         gadgetImageView.kf.setImage(with: url)
+        buttonTapped = handler
+    }
+    
+    @objc func onButtonTap() {
+        buttonTapped?()
     }
 }

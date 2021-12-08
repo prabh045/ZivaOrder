@@ -6,7 +6,14 @@
 //
 
 import Foundation
+import CoreData
 
 protocol ProductsRepository {
     func fetchProducts(completion: @escaping(Result<Gadget, ApiError>) -> Void)
 }
+
+protocol CoreDataRepo {
+    func saveProduct(product: Products)
+    func retrieveProducts() -> [NSManagedObject]
+}
+

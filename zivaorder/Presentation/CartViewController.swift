@@ -1,13 +1,13 @@
 //
-//  GadgetsViewController.swift
+//  CartViewController.swift
 //  zivaorder
 //
-//  Created by Prabhdeep Singh on 06/12/21.
+//  Created by Prabhdeep Singh on 08/12/21.
 //
 
 import UIKit
 
-class GadgetsViewController: UIViewController {
+class CartViewController: UIViewController {
     //MARK: Properties
     private lazy var gadgetTableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
@@ -55,7 +55,7 @@ class GadgetsViewController: UIViewController {
     }
 }
 //MARK: TableView Extension
-extension GadgetsViewController: UITableViewDataSource, UITableViewDelegate {
+extension CartViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return gadgetViewModel.getProductsCount()
     }
@@ -64,14 +64,6 @@ extension GadgetsViewController: UITableViewDataSource, UITableViewDelegate {
         guard let gadgetCell = tableView.dequeueReusableCell(withIdentifier: GadgetTableViewCell.getResuseIdentifier(), for: indexPath) as? GadgetTableViewCell else {
             fatalError("No gadget cell found. Terminating app")
         }
-        gadgetCell.setData(
-            name: gadgetViewModel.getProductName(at: indexPath.row),
-            price: gadgetViewModel.getProductPrice(at: indexPath.row),
-            rating: gadgetViewModel.getProductRating(at: indexPath.row),
-            imageUrl: gadgetViewModel.getProductImageUrl(at: indexPath.row), handler: { [weak self] in
-                self?.gadgetViewModel.saveGadget(from: indexPath.row)
-            }
-        )
         return gadgetCell
     }
 }

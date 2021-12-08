@@ -9,6 +9,7 @@ import Foundation
 class GadgetsViewModel {
     //MARK: Properties
     let productsRepo: ProductsRepository
+    let coreDataRepo: CoreDataRepo
     private var gadgets: Gadget? {
         didSet {
             products.value = gadgets?.products ?? []
@@ -17,8 +18,9 @@ class GadgetsViewModel {
     private var products = Box([Products]())
     
     //MARK: Initialiser
-    init(productsRepo: ProductsRepository) {
+    init(productsRepo: ProductsRepository, coreDataRepo: CoreDataRepo) {
         self.productsRepo = productsRepo
+        self.coreDataRepo = coreDataRepo
     }
     
     //MARK: Methods
@@ -52,6 +54,10 @@ class GadgetsViewModel {
     
     func getProductImageUrl(at index: Int) -> String {
         return products.value[index].image_url
+    }
+    
+    func saveGadget(from index: Int) {
+        coreDataRepo.saveProduct(product: products.value[index])
     }
     
     func bind(handler: @escaping ()-> Void) {

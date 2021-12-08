@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		7F1A8E9327611CFF00530975 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 7F1A8E9227611CFF00530975 /* Kingfisher */; };
+		7F1A8E982761215000530975 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1A8E972761215000530975 /* CartViewController.swift */; };
+		7F1A8E9D2761235E00530975 /* CoreDataRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1A8E9C2761235E00530975 /* CoreDataRepo.swift */; };
 		7F2DAA54275F8CBB0074E749 /* Gadget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2DAA53275F8CBB0074E749 /* Gadget.swift */; };
 		7FC58BD2275F8EA9000FF5BB /* ProductsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC58BD1275F8EA9000FF5BB /* ProductsRepository.swift */; };
 		7FC58BD7275F8F42000FF5BB /* DefaultProductsReposirory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC58BD6275F8F42000FF5BB /* DefaultProductsReposirory.swift */; };
@@ -44,6 +46,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7F1A8E972761215000530975 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
+		7F1A8E9C2761235E00530975 /* CoreDataRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataRepo.swift; sourceTree = "<group>"; };
 		7F2DAA53275F8CBB0074E749 /* Gadget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gadget.swift; sourceTree = "<group>"; };
 		7FC58BD1275F8EA9000FF5BB /* ProductsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsRepository.swift; sourceTree = "<group>"; };
 		7FC58BD6275F8F42000FF5BB /* DefaultProductsReposirory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultProductsReposirory.swift; sourceTree = "<group>"; };
@@ -109,6 +113,7 @@
 				7FD08677275E7A7500293DEB /* GadgetTableViewCell.swift */,
 				7FD0866F275E780100293DEB /* GadgetsViewController.swift */,
 				7FC58C00275F9912000FF5BB /* GadgetsViewModel.swift */,
+				7F1A8E972761215000530975 /* CartViewController.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -152,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				7FC58BD6275F8F42000FF5BB /* DefaultProductsReposirory.swift */,
+				7F1A8E9C2761235E00530975 /* CoreDataRepo.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -345,12 +351,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F1A8E9D2761235E00530975 /* CoreDataRepo.swift in Sources */,
 				7FD08670275E780100293DEB /* GadgetsViewController.swift in Sources */,
 				7FC58BD7275F8F42000FF5BB /* DefaultProductsReposirory.swift in Sources */,
 				7FC58C06275F99C5000FF5BB /* FetchProductsUseCase.swift in Sources */,
 				7FC58C01275F9912000FF5BB /* GadgetsViewModel.swift in Sources */,
 				7FD08678275E7A7500293DEB /* GadgetTableViewCell.swift in Sources */,
 				7FC58BD2275F8EA9000FF5BB /* ProductsRepository.swift in Sources */,
+				7F1A8E982761215000530975 /* CartViewController.swift in Sources */,
 				7FD08632275E769400293DEB /* zivaorder.xcdatamodeld in Sources */,
 				7FD08628275E769400293DEB /* AppDelegate.swift in Sources */,
 				7FD0862A275E769400293DEB /* SceneDelegate.swift in Sources */,
