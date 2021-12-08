@@ -11,6 +11,14 @@ class GadgetTableViewCell: UITableViewCell {
         return "GadgetTableViewCell"
     }
     //MARK: Properties
+    private var containerView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        view.layer.cornerRadius = 10
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     private lazy var gadgetImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
@@ -21,21 +29,24 @@ class GadgetTableViewCell: UITableViewCell {
     
     private lazy var nameLabel: UILabel = {
         let label = UILabel()
-        label.text = "Name Label"
+        label.numberOfLines = 0
+        label.font = UIFont(name: "Helvetica Neue", size: 17)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     private lazy var priceLabel: UILabel = {
         let label = UILabel()
-        label.text = "INR 200"
+        label.font =  UIFont(name: "Helvetica Neue", size: 14)
+        label.textColor = UIColor.gray
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     private lazy var ratingLabel: UILabel = {
         let label = UILabel()
-        label.text = "Five Star"
+        label.font =  UIFont(name: "Helvetica Neue", size: 12)
+        label.textColor = UIColor.green
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -44,8 +55,27 @@ class GadgetTableViewCell: UITableViewCell {
         let stack = UIStackView()
         stack.alignment = .fill
         stack.axis = .vertical
+        stack.spacing = 5
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
+    }()
+    
+    private lazy var cartActionButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Add to Cart", for: .normal)
+        button.titleLabel?.font = UIFont(name: "Helvetica Neue", size: 14)
+        button.backgroundColor = .clear
+        button.layer.cornerRadius = 7
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    private var buttonContainer: UIView = {
+        let view = UIView()
+        view.backgroundColor = .systemBlue
+        view.layer.cornerRadius = 7
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
     }()
     
     //MARK: Initialisation methods
@@ -67,23 +97,42 @@ class GadgetTableViewCell: UITableViewCell {
     }
     
     private func setUI() {
-        contentView.addSubview(gadgetImageView)
-        contentView.addSubview(productDetailStack)
+        contentView.backgroundColor = UIColor.systemGray2
+        contentView.addSubview(containerView)
+        containerView.addSubview(gadgetImageView)
+        containerView.addSubview(productDetailStack)
         productDetailStack.addArrangedSubview(nameLabel)
         productDetailStack.addArrangedSubview(priceLabel)
         productDetailStack.addArrangedSubview(ratingLabel)
+        containerView.addSubview(buttonContainer)
+        buttonContainer.addSubview(cartActionButton)
         setupConstraints()
     }
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            gadgetImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
-            gadgetImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            //container View
+            containerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 15),
+            containerView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15),
+            containerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -15),
+            containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -15),
+            //ImageView
+            gadgetImageView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10),
+            gadgetImageView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
             gadgetImageView.heightAnchor.constraint(equalToConstant: 30),
             gadgetImageView.widthAnchor.constraint(equalToConstant: 30),
-            productDetailStack.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
+            //Detail Stack
+            productDetailStack.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 20),
             productDetailStack.leadingAnchor.constraint(equalTo: gadgetImageView.trailingAnchor, constant: 15),
-            productDetailStack.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20)
+            productDetailStack.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -15),
+            //Cart Button
+            buttonContainer.topAnchor.constraint(equalTo: productDetailStack.bottomAnchor, constant: 15),
+            buttonContainer.leadingAnchor.constraint(equalTo: gadgetImageView.leadingAnchor),
+            buttonContainer.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -15),
+            cartActionButton.topAnchor.constraint(equalTo: buttonContainer.topAnchor, constant: 0),
+            cartActionButton.leadingAnchor.constraint(equalTo: buttonContainer.leadingAnchor, constant: 10),
+            cartActionButton.trailingAnchor.constraint(equalTo: buttonContainer.trailingAnchor, constant: -10),
+            cartActionButton.bottomAnchor.constraint(equalTo: buttonContainer.bottomAnchor, constant: 0),
         ])
     }
     

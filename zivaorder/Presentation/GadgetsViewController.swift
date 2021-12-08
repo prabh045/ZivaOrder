@@ -10,10 +10,11 @@ import UIKit
 class GadgetsViewController: UIViewController {
     //MARK: Properties
     private lazy var gadgetTableView: UITableView = {
-        let tableView = UITableView()
+        let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(GadgetTableViewCell.self, forCellReuseIdentifier: GadgetTableViewCell.getResuseIdentifier())
+        tableView.separatorStyle = .none
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
@@ -34,6 +35,7 @@ class GadgetsViewController: UIViewController {
     
     private func setGadgetsTableView() {
         view.addSubview(gadgetTableView)
+        gadgetTableView.backgroundColor = .systemGray2
         let safelayout = view.safeAreaLayoutGuide
         NSLayoutConstraint.activate([
             gadgetTableView.leadingAnchor.constraint(equalTo: safelayout.leadingAnchor),
