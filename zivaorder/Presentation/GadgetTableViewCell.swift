@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Kingfisher
+
 class GadgetTableViewCell: UITableViewCell {
     static func getResuseIdentifier() -> String {
         return "GadgetTableViewCell"
@@ -118,9 +120,9 @@ class GadgetTableViewCell: UITableViewCell {
             containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -15),
             //ImageView
             gadgetImageView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10),
-            gadgetImageView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
-            gadgetImageView.heightAnchor.constraint(equalToConstant: 30),
-            gadgetImageView.widthAnchor.constraint(equalToConstant: 30),
+            gadgetImageView.centerYAnchor.constraint(equalTo: productDetailStack.centerYAnchor),
+            gadgetImageView.heightAnchor.constraint(equalToConstant: 50),
+            gadgetImageView.widthAnchor.constraint(equalToConstant: 50),
             //Detail Stack
             productDetailStack.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 20),
             productDetailStack.leadingAnchor.constraint(equalTo: gadgetImageView.trailingAnchor, constant: 15),
@@ -136,9 +138,13 @@ class GadgetTableViewCell: UITableViewCell {
         ])
     }
     
-    func setData(name: String, price: String, rating: Int) {
+    func setData(name: String, price: String, rating: Int, imageUrl: String) {
         nameLabel.text = name
         priceLabel.text = price
         ratingLabel.text = "\(rating)"
+        guard let url = URL(string: imageUrl) else {
+           return
+        }
+        gadgetImageView.kf.setImage(with: url)
     }
 }

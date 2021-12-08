@@ -50,6 +50,10 @@ class GadgetsViewModel {
         return products.value[index].price
     }
     
+    func getProductImageUrl(at index: Int) -> String {
+        return products.value[index].image_url
+    }
+    
     func bind(handler: @escaping ()-> Void) {
         products.bind { (_) in
             handler()

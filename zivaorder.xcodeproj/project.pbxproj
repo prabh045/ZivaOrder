@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F1A8E9327611CFF00530975 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 7F1A8E9227611CFF00530975 /* Kingfisher */; };
 		7F2DAA54275F8CBB0074E749 /* Gadget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2DAA53275F8CBB0074E749 /* Gadget.swift */; };
 		7FC58BD2275F8EA9000FF5BB /* ProductsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC58BD1275F8EA9000FF5BB /* ProductsRepository.swift */; };
 		7FC58BD7275F8F42000FF5BB /* DefaultProductsReposirory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC58BD6275F8F42000FF5BB /* DefaultProductsReposirory.swift */; };
@@ -72,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F1A8E9327611CFF00530975 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,6 +226,9 @@
 			dependencies = (
 			);
 			name = zivaorder;
+			packageProductDependencies = (
+				7F1A8E9227611CFF00530975 /* Kingfisher */,
+			);
 			productName = zivaorder;
 			productReference = 7FD08624275E769400293DEB /* zivaorder.app */;
 			productType = "com.apple.product-type.application";
@@ -295,6 +300,9 @@
 				Base,
 			);
 			mainGroup = 7FD0861B275E769400293DEB;
+			packageReferences = (
+				7F1A8E9127611CFF00530975 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = 7FD08625275E769400293DEB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -667,6 +675,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7F1A8E9127611CFF00530975 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7F1A8E9227611CFF00530975 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7F1A8E9127611CFF00530975 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		7FD08630275E769400293DEB /* zivaorder.xcdatamodeld */ = {

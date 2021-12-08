@@ -66,7 +66,7 @@ extension GadgetsViewController: UITableViewDataSource, UITableViewDelegate {
         }
         gadgetCell.setData(name: gadgetViewModel.getProductName(at: indexPath.row),
                            price: gadgetViewModel.getProductPrice(at: indexPath.row),
-                           rating: gadgetViewModel.getProductRating(at: indexPath.row))
+                           rating: gadgetViewModel.getProductRating(at: indexPath.row), imageUrl: gadgetViewModel.getProductImageUrl(at: indexPath.row))
         return gadgetCell
     }
 }
