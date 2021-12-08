@@ -12,7 +12,7 @@ protocol ProductsRepository {
     func fetchProducts(completion: @escaping(Result<Gadget, ApiError>) -> Void)
 }
 
-protocol CoreDataRepo {
+protocol CoreDataRepository {
     func saveProduct(product: Products)
     func retrieveProducts() -> [NSManagedObject]
 }
