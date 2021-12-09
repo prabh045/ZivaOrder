@@ -73,7 +73,7 @@ class GadgetTableViewCell: UITableViewCell {
         return button
     }()
     
-    private var buttonContainer: UIView = {
+    private lazy var buttonContainer: UIView = {
         let view = UIView()
         view.backgroundColor = .systemBlue
         view.layer.cornerRadius = 7
@@ -142,8 +142,8 @@ class GadgetTableViewCell: UITableViewCell {
     
     func setData(name: String, price: String, rating: Int, imageUrl: String, handler: @escaping () -> Void) {
         nameLabel.text = name
-        priceLabel.text = price
-        ratingLabel.text = "\(rating)"
+        priceLabel.text = "₹\(price)"
+        ratingLabel.text = "🌟 \(rating)"
         guard let url = URL(string: imageUrl) else {
            return
         }
@@ -153,5 +153,9 @@ class GadgetTableViewCell: UITableViewCell {
     
     @objc func onButtonTap() {
         buttonTapped?()
+    }
+    
+    func hideCartButton() {
+        buttonContainer.isHidden = true
     }
 }

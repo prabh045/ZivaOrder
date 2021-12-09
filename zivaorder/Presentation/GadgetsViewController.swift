@@ -72,20 +72,40 @@ class GadgetsViewController: UIViewController {
 }
 //MARK: TableView Extension
 extension GadgetsViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let label = UILabel(frame: CGRect(x: 10, y: 0, width: tableView.frame.width, height: 50))
+        label.backgroundColor = .init(red: 153/255, green: 255/255, blue: 204/255, alpha: 0.8)
+        if section == 0 {
+            label.text = "Less than 1000"
+        } else {
+            label.text = "Greater than 1000"
+        }
+        return label
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return gadgetViewModel.getSections()
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return gadgetViewModel.getProductsCount()
+        return gadgetViewModel.getProductsCount(section: section)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let gadgetCell = tableView.dequeueReusableCell(withIdentifier: GadgetTableViewCell.getResuseIdentifier(), for: indexPath) as? GadgetTableViewCell else {
             fatalError("No gadget cell found. Terminating app")
         }
+        //gadgetCell.
         gadgetCell.setData(
-            name: gadgetViewModel.getProductName(at: indexPath.row),
-            price: gadgetViewModel.getProductPrice(at: indexPath.row),
-            rating: gadgetViewModel.getProductRating(at: indexPath.row),
-            imageUrl: gadgetViewModel.getProductImageUrl(at: indexPath.row), handler: { [weak self] in
-                self?.gadgetViewModel.saveGadget(from: indexPath.row)
+            name: gadgetViewModel.getProductName(at: indexPath),
+            price: gadgetViewModel.getProductPrice(at: indexPath),
+            rating: gadgetViewModel.getProductRating(at: indexPath),
+            imageUrl: gadgetViewModel.getProductImageUrl(at: indexPath), handler: { [weak self] in
+                self?.gadgetViewModel.saveGadget(from: indexPath)
             }
         )
         return gadgetCell

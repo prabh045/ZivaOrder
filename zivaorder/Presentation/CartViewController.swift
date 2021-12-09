@@ -58,7 +58,7 @@ class CartViewController: UIViewController {
 //MARK: TableView Extension
 extension CartViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return gadgetViewModel.getProductsCount()
+        return gadgetViewModel.getProductsCount(section: nil)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -66,13 +66,12 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate {
             fatalError("No gadget cell found. Terminating app")
         }
         gadgetCell.setData(
-            name: gadgetViewModel.getProductName(at: indexPath.row),
-            price: gadgetViewModel.getProductPrice(at: indexPath.row),
-            rating: gadgetViewModel.getProductRating(at: indexPath.row),
-            imageUrl: gadgetViewModel.getProductImageUrl(at: indexPath.row), handler: { [weak self] in
-                self?.gadgetViewModel.saveGadget(from: indexPath.row)
-            }
+            name: gadgetViewModel.getProductName(at: indexPath, isForCart: true),
+            price: gadgetViewModel.getProductPrice(at: indexPath, isForCart: true),
+            rating: gadgetViewModel.getProductRating(at: indexPath, isForCart: true),
+            imageUrl: gadgetViewModel.getProductImageUrl(at: indexPath, isForCart: true), handler: {}
         )
+        gadgetCell.hideCartButton()
         return gadgetCell
     }
 }

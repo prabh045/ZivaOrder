@@ -13,9 +13,11 @@ class GadgetsViewModel {
     private var gadgets: Gadget? {
         didSet {
             products.value = gadgets?.products ?? []
+            sortProducts()
         }
     }
     private var products = Box([Products]())
+    private var sortedProducts = Box([[Products]]())
     
     //MARK: Initialiser
     init(productsRepo: ProductsRepository, coreDataRepo: CoreDataRepo) {
@@ -36,36 +38,71 @@ class GadgetsViewModel {
         }
     }
     
-    func getProductsCount() -> Int {
+    func getProductsCount(section: Int?) -> Int {
+        if let section = section {
+            return sortedProducts.value[section].count
+        }
         return products.value.count
     }
     
-    func getProductName(at index: Int) -> String {
-        return products.value[index].name
+    func getSections() -> Int {
+        return sortedProducts.value.count
     }
     
-    func getProductRating(at index: Int) -> Int {
-        return products.value[index].rating
+    func getProductName(at indexPath: IndexPath, isForCart: Bool = false) -> String {
+        if isForCart == true {
+            return products.value[indexPath.row].name
+        }
+        return sortedProducts.value[indexPath.section][indexPath.row].name
     }
     
-    func getProductPrice(at index: Int) -> String {
-        return products.value[index].price
+    func getProductRating(at indexPath: IndexPath, isForCart: Bool = false ) -> Int {
+        if isForCart == true {
+            return products.value[indexPath.row].rating
+        }
+        return sortedProducts.value[indexPath.section][indexPath.row].rating
     }
     
-    func getProductImageUrl(at index: Int) -> String {
-        return products.value[index].image_url
+    func getProductPrice(at indexPath: IndexPath, isForCart: Bool = false) -> String {
+        if isForCart == true {
+            return products.value[indexPath.row].price
+        }
+        return sortedProducts.value[indexPath.section][indexPath.row].price
     }
     
-    func saveGadget(from index: Int) {
-        coreDataRepo.saveProduct(product: products.value[index])
+    func getProductImageUrl(at indexPath: IndexPath, isForCart: Bool = false) -> String {
+        if isForCart == true {
+            return products.value[indexPath.row].image_url
+        }
+        return sortedProducts.value[indexPath.section][indexPath.row].image_url
+    }
+    
+    func saveGadget(from indexPath: IndexPath) {
+        coreDataRepo.saveProduct(product: sortedProducts.value[indexPath.section][indexPath.row])
     }
     
     func getCartItems() {
         products.value = coreDataRepo.retrieveProducts()
+        sortProducts()
+    }
+    
+    func sortProducts() {
+        sortedProducts.value.removeAll()
+        let greaterProducts = products.value.filter { (product) in
+            return Int(product.price) ?? 0 > 1000
+        }
+        let lesserProducts = products.value.filter { (product) in
+            return Int(product.price) ?? 0 < 1000
+        }
+        sortedProducts.value.append(lesserProducts)
+        sortedProducts.value.append(greaterProducts)
     }
     
     func bind(handler: @escaping ()-> Void) {
         products.bind { (_) in
+            handler()
+        }
+        sortedProducts.bind { (_) in
             handler()
         }
     }
