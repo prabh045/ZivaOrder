@@ -25,16 +25,30 @@ class CoreDataRepo: CoreDataRepository {
         }
     }
     
-    func retrieveProducts() -> [NSManagedObject] {
+    func retrieveProducts() -> [Products] {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             fatalError("no app delegate found")
         }
         let managedcontext = appDelegate.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSManagedObject>.init(entityName: "Product")
         do {
-            let tasks = try managedcontext.fetch(fetchRequest)
-            print("Products fetched successfully", [tasks])
-            return tasks
+            let products = try managedcontext.fetch(fetchRequest)
+            print("Products fetched successfully", [products])
+            var cartItems = [Products]()
+            for product in products {
+                guard let data = product.value(forKey: "productData") as? Data else {
+                    return []
+                }
+                do {
+                    let cartItem = try JSONDecoder().decode(Products.self, from: data)
+                    print("products from core data are \(cartItem)")
+                    cartItems.append(cartItem)
+                } catch (let error) {
+                    print("error getting data from core data \(error.localizedDescription)")
+                    return []
+                }
+            }
+            return cartItems
         } catch  {
             print("Could not fetch tasks")
             return []

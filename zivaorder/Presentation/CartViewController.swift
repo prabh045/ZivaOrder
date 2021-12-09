@@ -23,7 +23,8 @@ class CartViewController: UIViewController {
     //MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .blue
+        view.backgroundColor = .systemGreen
+        navigationItem.title = "My Cart"
         setUI()
         setViewModels()
     }
@@ -51,7 +52,7 @@ class CartViewController: UIViewController {
                 self?.gadgetTableView.reloadData()
             }
         }
-        gadgetViewModel.fetchProducts()
+        gadgetViewModel.getCartItems()
     }
 }
 //MARK: TableView Extension
@@ -64,6 +65,14 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate {
         guard let gadgetCell = tableView.dequeueReusableCell(withIdentifier: GadgetTableViewCell.getResuseIdentifier(), for: indexPath) as? GadgetTableViewCell else {
             fatalError("No gadget cell found. Terminating app")
         }
+        gadgetCell.setData(
+            name: gadgetViewModel.getProductName(at: indexPath.row),
+            price: gadgetViewModel.getProductPrice(at: indexPath.row),
+            rating: gadgetViewModel.getProductRating(at: indexPath.row),
+            imageUrl: gadgetViewModel.getProductImageUrl(at: indexPath.row), handler: { [weak self] in
+                self?.gadgetViewModel.saveGadget(from: indexPath.row)
+            }
+        )
         return gadgetCell
     }
 }

@@ -14,6 +14,6 @@ protocol ProductsRepository {
 
 protocol CoreDataRepository {
     func saveProduct(product: Products)
-    func retrieveProducts() -> [NSManagedObject]
+    func retrieveProducts() -> [Products]
 }
 

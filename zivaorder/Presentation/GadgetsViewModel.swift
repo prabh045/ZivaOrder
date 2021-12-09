@@ -60,6 +60,10 @@ class GadgetsViewModel {
         coreDataRepo.saveProduct(product: products.value[index])
     }
     
+    func getCartItems() {
+        products.value = coreDataRepo.retrieveProducts()
+    }
+    
     func bind(handler: @escaping ()-> Void) {
         products.bind { (_) in
             handler()
