@@ -11,6 +11,8 @@
 		7F1A8E982761215000530975 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1A8E972761215000530975 /* CartViewController.swift */; };
 		7F1A8E9D2761235E00530975 /* CoreDataRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1A8E9C2761235E00530975 /* CoreDataRepo.swift */; };
 		7F2DAA54275F8CBB0074E749 /* Gadget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2DAA53275F8CBB0074E749 /* Gadget.swift */; };
+		7F3D25EA2761C36F001AEABC /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3D25E92761C36F001AEABC /* Coordinator.swift */; };
+		7F3D25EF2761C397001AEABC /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3D25EE2761C397001AEABC /* MainCoordinator.swift */; };
 		7FC58BD2275F8EA9000FF5BB /* ProductsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC58BD1275F8EA9000FF5BB /* ProductsRepository.swift */; };
 		7FC58BD7275F8F42000FF5BB /* DefaultProductsReposirory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC58BD6275F8F42000FF5BB /* DefaultProductsReposirory.swift */; };
 		7FC58BDC275F8F9D000FF5BB /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC58BDB275F8F9D000FF5BB /* APIError.swift */; };
@@ -49,6 +51,8 @@
 		7F1A8E972761215000530975 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		7F1A8E9C2761235E00530975 /* CoreDataRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataRepo.swift; sourceTree = "<group>"; };
 		7F2DAA53275F8CBB0074E749 /* Gadget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gadget.swift; sourceTree = "<group>"; };
+		7F3D25E92761C36F001AEABC /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		7F3D25EE2761C397001AEABC /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		7FC58BD1275F8EA9000FF5BB /* ProductsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsRepository.swift; sourceTree = "<group>"; };
 		7FC58BD6275F8F42000FF5BB /* DefaultProductsReposirory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultProductsReposirory.swift; sourceTree = "<group>"; };
 		7FC58BDB275F8F9D000FF5BB /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
@@ -98,6 +102,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7F3D25F32761CFCC001AEABC /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				7F3D25E92761C36F001AEABC /* Coordinator.swift */,
+				7F3D25EE2761C397001AEABC /* MainCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
 		7FC58BE4275F9799000FF5BB /* Domian */ = {
 			isa = PBXGroup;
 			children = (
@@ -185,6 +198,7 @@
 		7FD08626275E769400293DEB /* zivaorder */ = {
 			isa = PBXGroup;
 			children = (
+				7F3D25F32761CFCC001AEABC /* Coordinator */,
 				7FC58BEC275F97CE000FF5BB /* Application */,
 				7FC58BE4275F9799000FF5BB /* Domian */,
 				7FC58BF0275F97E1000FF5BB /* Data */,
@@ -353,12 +367,14 @@
 			files = (
 				7F1A8E9D2761235E00530975 /* CoreDataRepo.swift in Sources */,
 				7FD08670275E780100293DEB /* GadgetsViewController.swift in Sources */,
+				7F3D25EA2761C36F001AEABC /* Coordinator.swift in Sources */,
 				7FC58BD7275F8F42000FF5BB /* DefaultProductsReposirory.swift in Sources */,
 				7FC58C06275F99C5000FF5BB /* FetchProductsUseCase.swift in Sources */,
 				7FC58C01275F9912000FF5BB /* GadgetsViewModel.swift in Sources */,
 				7FD08678275E7A7500293DEB /* GadgetTableViewCell.swift in Sources */,
 				7FC58BD2275F8EA9000FF5BB /* ProductsRepository.swift in Sources */,
 				7F1A8E982761215000530975 /* CartViewController.swift in Sources */,
+				7F3D25EF2761C397001AEABC /* MainCoordinator.swift in Sources */,
 				7FD08632275E769400293DEB /* zivaorder.xcdatamodeld in Sources */,
 				7FD08628275E769400293DEB /* AppDelegate.swift in Sources */,
 				7FD0862A275E769400293DEB /* SceneDelegate.swift in Sources */,

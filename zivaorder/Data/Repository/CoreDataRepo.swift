@@ -7,8 +7,7 @@
 import UIKit
 import CoreData
 
-class CoreDataRepo: CoreDataRepo {
-    
+class CoreDataRepo: CoreDataRepository {
     func saveProduct(product: Products) {
         guard let appdelegate = UIApplication.shared.delegate as? AppDelegate else {
             fatalError("No app delegate")

@@ -35,7 +35,7 @@ class CartViewController: UIViewController {
     
     private func setGadgetsTableView() {
         view.addSubview(gadgetTableView)
-        gadgetTableView.backgroundColor = .systemGray2
+        gadgetTableView.backgroundColor = .systemGreen
         let safelayout = view.safeAreaLayoutGuide
         NSLayoutConstraint.activate([
             gadgetTableView.leadingAnchor.constraint(equalTo: safelayout.leadingAnchor),

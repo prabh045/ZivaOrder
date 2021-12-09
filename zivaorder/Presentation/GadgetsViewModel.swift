@@ -9,7 +9,7 @@ import Foundation
 class GadgetsViewModel {
     //MARK: Properties
     let productsRepo: ProductsRepository
-    let coreDataRepo: CoreDataRepo
+    let coreDataRepo: CoreDataRepository
     private var gadgets: Gadget? {
         didSet {
             products.value = gadgets?.products ?? []

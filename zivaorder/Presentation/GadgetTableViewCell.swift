@@ -101,7 +101,7 @@ class GadgetTableViewCell: UITableViewCell {
     }
     
     private func setUI() {
-        contentView.backgroundColor = UIColor.systemGray2
+        contentView.backgroundColor = UIColor.systemGreen
         contentView.addSubview(containerView)
         containerView.addSubview(gadgetImageView)
         containerView.addSubview(productDetailStack)

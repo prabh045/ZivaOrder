@@ -19,23 +19,26 @@ class GadgetsViewController: UIViewController {
         return tableView
     }()
     private var gadgetViewModel = GadgetsViewModel(productsRepo: DefaultProductsRepositroy(), coreDataRepo: CoreDataRepo())
+    var coordinator: HomeCoordinator?
     
     //MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .blue
+        view.backgroundColor = .systemGreen
         setUI()
         setViewModels()
     }
     
     //MARK: Set up UI
     private func setUI() {
+        navigationItem.title = "Gadgets"
         setGadgetsTableView()
+        setBarButtonItem()
     }
     
     private func setGadgetsTableView() {
         view.addSubview(gadgetTableView)
-        gadgetTableView.backgroundColor = .systemGray2
+        gadgetTableView.backgroundColor = .systemGreen
         let safelayout = view.safeAreaLayoutGuide
         NSLayoutConstraint.activate([
             gadgetTableView.leadingAnchor.constraint(equalTo: safelayout.leadingAnchor),
@@ -43,6 +46,19 @@ class GadgetsViewController: UIViewController {
             gadgetTableView.trailingAnchor.constraint(equalTo: safelayout.trailingAnchor),
             gadgetTableView.bottomAnchor.constraint(equalTo: safelayout.bottomAnchor),
         ])
+    }
+    
+    private func setBarButtonItem() {
+        let button = UIButton(type: .custom)
+        button.setImage(UIImage(named: "cartIcon"), for: .normal)
+        button.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+        button.addTarget(self, action: #selector(goToCart), for: .touchUpInside)
+        let cartButton = UIBarButtonItem(customView: button)
+        navigationItem.rightBarButtonItem = cartButton
+    }
+    
+    @objc private func goToCart() {
+        coordinator?.openCart()
     }
     
     private func setViewModels() {
