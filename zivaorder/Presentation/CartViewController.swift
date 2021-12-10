@@ -15,9 +15,22 @@ class CartViewController: UIViewController {
         tableView.dataSource = self
         tableView.register(GadgetTableViewCell.self, forCellReuseIdentifier: GadgetTableViewCell.getResuseIdentifier())
         tableView.separatorStyle = .none
+        tableView.backgroundColor = .systemGreen
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
+    private lazy var checkoutButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Checkout", for: .normal)
+        button.titleLabel?.font = UIFont(name: "Helvetica Neue", size: 14)
+        button.setTitleColor(.black, for: .normal)
+        button.backgroundColor = UIColor.systemYellow
+        button.layer.cornerRadius = 7
+        //button.addTarget(self, action: #selector(onButtonTap), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+
     private var gadgetViewModel = GadgetsViewModel(productsRepo: DefaultProductsRepositroy(), coreDataRepo: CoreDataRepo())
     
     //MARK: LifeCycle
@@ -32,17 +45,29 @@ class CartViewController: UIViewController {
     //MARK: Set up UI
     private func setUI() {
         setGadgetsTableView()
+        setupCheckoutButton()
+        setupConstraints()
     }
     
     private func setGadgetsTableView() {
         view.addSubview(gadgetTableView)
-        gadgetTableView.backgroundColor = .systemGreen
+    }
+    
+    private func setupCheckoutButton() {
+        view.addSubview(checkoutButton)
+    }
+    
+    private func setupConstraints() {
         let safelayout = view.safeAreaLayoutGuide
         NSLayoutConstraint.activate([
             gadgetTableView.leadingAnchor.constraint(equalTo: safelayout.leadingAnchor),
             gadgetTableView.topAnchor.constraint(equalTo: safelayout.topAnchor),
             gadgetTableView.trailingAnchor.constraint(equalTo: safelayout.trailingAnchor),
-            gadgetTableView.bottomAnchor.constraint(equalTo: safelayout.bottomAnchor),
+            gadgetTableView.bottomAnchor.constraint(equalTo: checkoutButton.topAnchor, constant: -10),
+            checkoutButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            checkoutButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.40),
+            checkoutButton.heightAnchor.constraint(equalToConstant: 50),
+            checkoutButton.bottomAnchor.constraint(equalTo: safelayout.bottomAnchor, constant: -15),
         ])
     }
     
