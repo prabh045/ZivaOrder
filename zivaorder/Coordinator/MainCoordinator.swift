@@ -8,12 +8,15 @@
 import UIKit
 
 class MainCoordinator: HomeCoordinator {
+    //Mark: Properties
     var navigationController: UINavigationController
     
+    //MARK: Initialisation
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
     
+    //MARK: Navigation methods
     func start() {
         let vc = GadgetsViewController()
         vc.coordinator = self
@@ -22,6 +25,12 @@ class MainCoordinator: HomeCoordinator {
     
     func openCart() {
         let vc = CartViewController()
+        vc.coordinator = self
+        navigationController.pushViewController(vc, animated: true)
+    }
+    
+    func openCheckoutPage() {
+        let vc = CheckoutViewController()
         navigationController.pushViewController(vc, animated: true)
     }
     

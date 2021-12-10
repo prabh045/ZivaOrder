@@ -12,6 +12,11 @@ protocol Coordinator {
     func start()
 }
 
-protocol HomeCoordinator: Coordinator {
+protocol OpenCheckout {
+    func openCheckoutPage()
+}
+
+protocol HomeCoordinator: Coordinator, OpenCheckout {
     func openCart()
 }
+

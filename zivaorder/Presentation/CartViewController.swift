@@ -19,6 +19,7 @@ class CartViewController: UIViewController {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
+    
     private lazy var checkoutButton: UIButton = {
         let button = UIButton()
         button.setTitle("Checkout", for: .normal)
@@ -26,12 +27,13 @@ class CartViewController: UIViewController {
         button.setTitleColor(.black, for: .normal)
         button.backgroundColor = UIColor.systemYellow
         button.layer.cornerRadius = 7
-        //button.addTarget(self, action: #selector(onButtonTap), for: .touchUpInside)
+        button.addTarget(self, action: #selector(goToCheckout), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
 
     private var gadgetViewModel = GadgetsViewModel(productsRepo: DefaultProductsRepositroy(), coreDataRepo: CoreDataRepo())
+    var coordinator: HomeCoordinator?
     
     //MARK: LifeCycle
     override func viewDidLoad() {
@@ -78,6 +80,10 @@ class CartViewController: UIViewController {
             }
         }
         gadgetViewModel.getCartItems()
+    }
+    
+    @objc func goToCheckout() {
+        coordinator?.openCheckoutPage()
     }
 }
 //MARK: TableView Extension
