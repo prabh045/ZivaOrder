@@ -14,5 +14,4 @@ enum ApiError: Error {
     case invalidResponse
     case wrongStatusCode
     case invalidRequest
-    case tokenGenerationError
 }

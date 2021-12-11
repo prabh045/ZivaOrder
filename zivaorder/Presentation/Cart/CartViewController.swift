@@ -15,7 +15,7 @@ class CartViewController: UIViewController {
         tableView.dataSource = self
         tableView.register(GadgetTableViewCell.self, forCellReuseIdentifier: GadgetTableViewCell.getResuseIdentifier())
         tableView.separatorStyle = .none
-        tableView.backgroundColor = .systemGreen
+        tableView.backgroundColor = Colors.backgroundColor
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
@@ -38,7 +38,7 @@ class CartViewController: UIViewController {
     //MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemGreen
+        view.backgroundColor = Colors.backgroundColor
         navigationItem.title = "My Cart"
         setUI()
         setViewModels()

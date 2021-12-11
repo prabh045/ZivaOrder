@@ -20,7 +20,7 @@ class GadgetsViewModel {
     private var sortedProducts = Box([[Products]]())
     
     //MARK: Initialiser
-    init(productsRepo: ProductsRepository, coreDataRepo: CoreDataRepo) {
+    init(productsRepo: ProductsRepository, coreDataRepo: CoreDataRepository) {
         self.productsRepo = productsRepo
         self.coreDataRepo = coreDataRepo
     }

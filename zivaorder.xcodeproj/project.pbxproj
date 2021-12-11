@@ -15,6 +15,8 @@
 		7F3D25EF2761C397001AEABC /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3D25EE2761C397001AEABC /* MainCoordinator.swift */; };
 		7F8B5DD92763446100C9E3DB /* CheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8B5DD82763446100C9E3DB /* CheckoutViewController.swift */; };
 		7F8B5DDE27636DCE00C9E3DB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8B5DDD27636DCE00C9E3DB /* Constants.swift */; };
+		7F8B5DE72764773A00C9E3DB /* MockProductsRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8B5DE62764773A00C9E3DB /* MockProductsRepo.swift */; };
+		7F8B5DEC27647F4D00C9E3DB /* CoreDataMockRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8B5DEB27647F4D00C9E3DB /* CoreDataMockRepo.swift */; };
 		7FC58BD2275F8EA9000FF5BB /* ProductsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC58BD1275F8EA9000FF5BB /* ProductsRepository.swift */; };
 		7FC58BD7275F8F42000FF5BB /* DefaultProductsReposirory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC58BD6275F8F42000FF5BB /* DefaultProductsReposirory.swift */; };
 		7FC58BDC275F8F9D000FF5BB /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC58BDB275F8F9D000FF5BB /* APIError.swift */; };
@@ -57,6 +59,8 @@
 		7F3D25EE2761C397001AEABC /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		7F8B5DD82763446100C9E3DB /* CheckoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutViewController.swift; sourceTree = "<group>"; };
 		7F8B5DDD27636DCE00C9E3DB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		7F8B5DE62764773A00C9E3DB /* MockProductsRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockProductsRepo.swift; sourceTree = "<group>"; };
+		7F8B5DEB27647F4D00C9E3DB /* CoreDataMockRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataMockRepo.swift; sourceTree = "<group>"; };
 		7FC58BD1275F8EA9000FF5BB /* ProductsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsRepository.swift; sourceTree = "<group>"; };
 		7FC58BD6275F8F42000FF5BB /* DefaultProductsReposirory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultProductsReposirory.swift; sourceTree = "<group>"; };
 		7FC58BDB275F8F9D000FF5BB /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
@@ -115,6 +119,82 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
+		7F8B5DE22764755800C9E3DB /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				7FC58C0A275F9D47000FF5BB /* Box.swift */,
+				7F8B5DDD27636DCE00C9E3DB /* Constants.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		7F8B5DF027648B2800C9E3DB /* Gadget */ = {
+			isa = PBXGroup;
+			children = (
+				7F8B5E0027648B5900C9E3DB /* Views */,
+				7F8B5DFF27648B5100C9E3DB /* ViewController */,
+				7F8B5E0427648B6300C9E3DB /* ViewModel */,
+			);
+			path = Gadget;
+			sourceTree = "<group>";
+		};
+		7F8B5DF427648B3800C9E3DB /* Cart */ = {
+			isa = PBXGroup;
+			children = (
+				7F1A8E972761215000530975 /* CartViewController.swift */,
+			);
+			path = Cart;
+			sourceTree = "<group>";
+		};
+		7F8B5DFB27648B4100C9E3DB /* Checkout */ = {
+			isa = PBXGroup;
+			children = (
+				7F8B5DD82763446100C9E3DB /* CheckoutViewController.swift */,
+			);
+			path = Checkout;
+			sourceTree = "<group>";
+		};
+		7F8B5DFF27648B5100C9E3DB /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7FD0866F275E780100293DEB /* GadgetsViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		7F8B5E0027648B5900C9E3DB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7FD08677275E7A7500293DEB /* GadgetTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		7F8B5E0427648B6300C9E3DB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				7FC58C00275F9912000FF5BB /* GadgetsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		7F8B5E0827648B7800C9E3DB /* MockRepository */ = {
+			isa = PBXGroup;
+			children = (
+				7F8B5DE62764773A00C9E3DB /* MockProductsRepo.swift */,
+				7F8B5DEB27647F4D00C9E3DB /* CoreDataMockRepo.swift */,
+			);
+			path = MockRepository;
+			sourceTree = "<group>";
+		};
+		7F8B5E0C27648B8800C9E3DB /* ViewModelTests */ = {
+			isa = PBXGroup;
+			children = (
+				7FD08641275E769800293DEB /* zivaorderTests.swift */,
+			);
+			path = ViewModelTests;
+			sourceTree = "<group>";
+		};
 		7FC58BE4275F9799000FF5BB /* Domian */ = {
 			isa = PBXGroup;
 			children = (
@@ -127,11 +207,9 @@
 		7FC58BE8275F97B6000FF5BB /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				7FD08677275E7A7500293DEB /* GadgetTableViewCell.swift */,
-				7FD0866F275E780100293DEB /* GadgetsViewController.swift */,
-				7FC58C00275F9912000FF5BB /* GadgetsViewModel.swift */,
-				7F1A8E972761215000530975 /* CartViewController.swift */,
-				7F8B5DD82763446100C9E3DB /* CheckoutViewController.swift */,
+				7F8B5DF027648B2800C9E3DB /* Gadget */,
+				7F8B5DF427648B3800C9E3DB /* Cart */,
+				7F8B5DFB27648B4100C9E3DB /* Checkout */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -208,12 +286,11 @@
 				7FC58BE4275F9799000FF5BB /* Domian */,
 				7FC58BF0275F97E1000FF5BB /* Data */,
 				7FC58BE8275F97B6000FF5BB /* Presentation */,
+				7F8B5DE22764755800C9E3DB /* Utilities */,
 				7FD08633275E769600293DEB /* Assets.xcassets */,
 				7FD08635275E769600293DEB /* LaunchScreen.storyboard */,
 				7FD08638275E769600293DEB /* Info.plist */,
 				7FD08630275E769400293DEB /* zivaorder.xcdatamodeld */,
-				7FC58C0A275F9D47000FF5BB /* Box.swift */,
-				7F8B5DDD27636DCE00C9E3DB /* Constants.swift */,
 			);
 			path = zivaorder;
 			sourceTree = "<group>";
@@ -221,8 +298,9 @@
 		7FD08640275E769800293DEB /* zivaorderTests */ = {
 			isa = PBXGroup;
 			children = (
-				7FD08641275E769800293DEB /* zivaorderTests.swift */,
+				7F8B5E0C27648B8800C9E3DB /* ViewModelTests */,
 				7FD08643275E769800293DEB /* Info.plist */,
+				7F8B5E0827648B7800C9E3DB /* MockRepository */,
 			);
 			path = zivaorderTests;
 			sourceTree = "<group>";
@@ -397,6 +475,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				7FD08642275E769800293DEB /* zivaorderTests.swift in Sources */,
+				7F8B5DEC27647F4D00C9E3DB /* CoreDataMockRepo.swift in Sources */,
+				7F8B5DE72764773A00C9E3DB /* MockProductsRepo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

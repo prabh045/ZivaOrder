@@ -24,7 +24,7 @@ class GadgetsViewController: UIViewController {
     //MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemGreen
+        view.backgroundColor = Colors.backgroundColor
         setUI()
         setViewModels()
     }
@@ -38,7 +38,7 @@ class GadgetsViewController: UIViewController {
     
     private func setGadgetsTableView() {
         view.addSubview(gadgetTableView)
-        gadgetTableView.backgroundColor = .systemGreen
+        gadgetTableView.backgroundColor = Colors.backgroundColor
         let safelayout = view.safeAreaLayoutGuide
         NSLayoutConstraint.activate([
             gadgetTableView.leadingAnchor.constraint(equalTo: safelayout.leadingAnchor),
