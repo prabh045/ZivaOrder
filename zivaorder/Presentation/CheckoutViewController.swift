@@ -10,8 +10,8 @@ class CheckoutViewController: UIViewController {
     //MARK: Properties
     lazy var activityIndicator: UIActivityIndicatorView = {
         let activityIndicator = UIActivityIndicatorView()
-        activityIndicator.color = UIColor.red
-        activityIndicator.startAnimating()
+        activityIndicator.color = UIColor.white
+        activityIndicator.isHidden = true
         activityIndicator.hidesWhenStopped = true
         activityIndicator.style = .large
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
@@ -38,7 +38,7 @@ class CheckoutViewController: UIViewController {
     
     private var containerView: UIView = {
         let view = UIView()
-        view.backgroundColor = .gray
+        view.backgroundColor = Colors.lightGreen
         view.layer.cornerRadius = 10
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -49,6 +49,7 @@ class CheckoutViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         setupConstraints()
+        showIndicator()
         hideIndicator()
     }
     
@@ -68,15 +69,23 @@ class CheckoutViewController: UIViewController {
             containerView.widthAnchor.constraint(equalTo: safelayout.widthAnchor, multiplier: 0.60),
             containerView.heightAnchor.constraint(equalToConstant: 150),
             orderMessageStack.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
-            orderMessageStack.topAnchor.constraint(equalTo: containerView.topAnchor),
+            orderMessageStack.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 15),
             orderMessageStack.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
-            orderMessageStack.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
+            orderMessageStack.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -15),
         ])
     }
     
     private func hideIndicator() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 30) {
-            self.activityIndicator.isHidden = true
+            self.activityIndicator.stopAnimating()
+            self.orderPlacedLabel.isHidden = false
+        }
+    }
+    
+    private func showIndicator() {
+        DispatchQueue.main.async {
+            self.activityIndicator.startAnimating()
+            self.orderPlacedLabel.isHidden = true
         }
     }
 }

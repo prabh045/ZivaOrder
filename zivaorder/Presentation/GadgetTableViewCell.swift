@@ -32,14 +32,14 @@ class GadgetTableViewCell: UITableViewCell {
     private lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
-        label.font = UIFont(name: "Helvetica Neue", size: 17)
+        label.font = UIFont(name: Fonts.CommonFont.rawValue, size: 17)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     private lazy var priceLabel: UILabel = {
         let label = UILabel()
-        label.font =  UIFont(name: "Helvetica Neue", size: 14)
+        label.font =  UIFont(name: Fonts.CommonFont.rawValue, size: 14)
         label.textColor = UIColor.gray
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -47,7 +47,7 @@ class GadgetTableViewCell: UITableViewCell {
     
     private lazy var ratingLabel: UILabel = {
         let label = UILabel()
-        label.font =  UIFont(name: "Helvetica Neue", size: 12)
+        label.font =  UIFont(name: Fonts.CommonFont.rawValue, size: 12)
         label.textColor = UIColor.green
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -65,7 +65,7 @@ class GadgetTableViewCell: UITableViewCell {
     private lazy var cartActionButton: UIButton = {
         let button = UIButton()
         button.setTitle("Add to Cart", for: .normal)
-        button.titleLabel?.font = UIFont(name: "Helvetica Neue", size: 14)
+        button.titleLabel?.font = UIFont(name: Fonts.CommonFont.rawValue, size: 14)
         button.backgroundColor = .clear
         button.layer.cornerRadius = 7
         button.addTarget(self, action: #selector(onButtonTap), for: .touchUpInside)
@@ -101,7 +101,7 @@ class GadgetTableViewCell: UITableViewCell {
     }
     
     private func setUI() {
-        contentView.backgroundColor = UIColor.systemGreen
+        contentView.backgroundColor = Colors.backgroundColor
         contentView.addSubview(containerView)
         containerView.addSubview(gadgetImageView)
         containerView.addSubview(productDetailStack)
