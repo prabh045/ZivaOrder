@@ -9,9 +9,9 @@ Features
 
 Third Part used
 
--Kingfisher
+-Kingfisher Installed using SPM
 
 Installation
 1. Clone the repo
-2. Run Pod install
-3. Open .xcworkspace project
+2. open .xcodeProject
+3. Make sure that Kingfisher is there, otherwise please install using any preferred method
